@@ -38,6 +38,18 @@ It will install WireGuard (kernel module and tools) on the server, configure it,
 
 Run the script again to add or remove clients!
 
+## For oracle cloud
+```
+curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh
+chmod +x wireguard-install.sh
+# in "IPv4 or IPv6 public address:" add VM public IP here.
+# and "Server's WireGuard port [1-65535]:" add port opened in oracle cloud dashboard.
+sudo ./wireguard-install.sh
+sudo iptables -F
+sudo iptables-save | sudo tee /etc/iptables/rules.v4
+sudo reboot
+```
+
 ## Providers
 
 I recommend these cheap cloud providers for your VPN server:
